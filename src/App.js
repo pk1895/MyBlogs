@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Login from './Pages/Authentication/Login';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Register from './Pages/Authentication/Register';
+import Sections from './Pages/Sections/Sections';
 import { Redirect, Switch, Route } from 'react-router-dom';
 import NewPost from './Pages/NewPost/NewPost';
 import Navigation from './components/Layout/Navigation';
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path='/new-post'>
           <NewPost />
+        </Route>
+        <Route path='/sections'>
+          <Sections />
         </Route>
       </Switch>
     </Fragment>

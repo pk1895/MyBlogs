@@ -1,4 +1,23 @@
+.tiles {
+    height: 100px;
+    margin: 1.5rem auto;
+    width: 80%;
+    /* max-width: 25rem; */
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(90, 45, 45, 0.4);
+    padding: 1rem;
+    text-align: center;
+}
 
-/* .tiles{
-    border: ;
-} */
+.tiles:hover{
+    background-color: rgb(233, 215, 215);
+}
+
+.tiles h3{
+    color: rgb(160, 18, 18);
+}
+
+.tiles:hover h3{
+    color: rgb(63, 14, 14);
+}
