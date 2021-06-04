@@ -4,7 +4,6 @@ import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import { useHistory } from 'react-router';
 
 const NewPost = () => {
-
     const [title, setTitle] = useState();
     const [section, setSection] = useState("Technology");
     const [content, setContent] = useState();
