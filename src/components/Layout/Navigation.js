@@ -14,7 +14,7 @@ const MainHeader = (props) => {
   const [isCheckout, setIsCheckout] = useState(false);
 
   const onHome = () => {
-    history.push('/');
+    history.push('/dashboard');
   }
 
   const onConfirmHandler = () => {

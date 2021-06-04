@@ -3,6 +3,7 @@ import Login from './Pages/Authentication/Login';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Register from './Pages/Authentication/Register';
 import Sections from './Pages/Sections/Sections';
+import PostDetail from "./components/Post/PostDetail";
 import { Redirect, Switch, Route } from 'react-router-dom';
 import NewPost from './Pages/NewPost/NewPost';
 import Navigation from './components/Layout/Navigation';
@@ -25,15 +26,22 @@ function App() {
         <Route path='/register'>
           <Register />
         </Route>
-        <Route path='/dashboard'>
+
+        {isLogIn ? <Route path='/dashboard'>
           <Dashboard />
-        </Route>
-        <Route path='/new-post'>
+        </Route> : <Redirect to='/login' />}
+
+        {isLogIn ? <Route path='/new-post'>
           <NewPost />
-        </Route>
-        <Route path='/sections'>
+        </Route> : <Redirect to='/login' />}
+
+        {isLogIn ? <Route path='/sections'>
           <Sections />
-        </Route>
+        </Route> : <Redirect to='/login' />}
+
+        {isLogIn ? <Route path='/post-detail'>
+          <PostDetail />
+        </Route> : <Redirect to='/login' />}
       </Switch>
     </Fragment>
   );
