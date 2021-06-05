@@ -1,17 +1,15 @@
 import classes from './Navigation.module.css';
 import { Link, useHistory } from 'react-router-dom';
-// import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
-// import { authActions } from '../../store/auth-slice';
+import Logout from '../../Pages/Authentication/Logout';
 
 const MainHeader = (props) => {
-  const history = useHistory();
-//   const dispatch = useDispatch();
-  const isLoggedIn = true;
 
+  const history = useHistory();
+  const isLoggedIn = true;
   const [isLogout, setIsLogout] = useState(false);
-  const [cartDropdown, setCartDropdown] = useState(false);
-  const [isCheckout, setIsCheckout] = useState(false);
+  // const [cartDropdown, setCartDropdown] = useState(false);
+  // const [isCheckout, setIsCheckout] = useState(false);
 
   const onHome = () => {
     history.push('/dashboard');
@@ -24,7 +22,7 @@ const MainHeader = (props) => {
     //   userId: '',
     //   isLoggedIn: false
     // }));
-    // history.push('/login');
+    history.push('/login');
   }
 
   const onCancelHandler = () => {
@@ -35,18 +33,18 @@ const MainHeader = (props) => {
     setIsLogout(true);
   }
 
-  const onCartDropDown = () => {
-    setCartDropdown(!cartDropdown);
-  }
+  // const onCartDropDown = () => {
+  //   setCartDropdown(!cartDropdown);
+  // }
 
-  const onCheckout = () => {
-    setCartDropdown(false);
-    setIsCheckout(true);
-  }
+  // const onCheckout = () => {
+  //   setCartDropdown(false);
+  //   setIsCheckout(true);
+  // }
 
-  const onCancelCheckout = () => {
-    setIsCheckout(false);
-  }
+  // const onCancelCheckout = () => {
+  //   setIsCheckout(false);
+  // }
 
   return (
     <div>
@@ -65,8 +63,8 @@ const MainHeader = (props) => {
             </li>}
             {/* {isLoggedIn && <HeaderCartButton onHandle={onCartDropDown} />} */}
           </ul>
-          {/* {isLogout && <Logout onCancel={onCancelHandler} onConfirm={onConfirmHandler} />}
-          {isLoggedIn && cartDropdown && <CartDropdown onGoToCheckout={onCheckout} />}
+          {isLogout && <Logout onCancel={onCancelHandler} onConfirm={onConfirmHandler} />}
+          {/* {isLoggedIn && cartDropdown && <CartDropdown onGoToCheckout={onCheckout} />}
           {isCheckout && <Checkout onCancel={onCancelCheckout} />} */}
         </nav>
       </header>
