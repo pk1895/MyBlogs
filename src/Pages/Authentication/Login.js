@@ -5,6 +5,7 @@ import firebase from '../../firebase';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import { useDispatch } from 'react-redux';
 import { authActions } from '../../store/auth-slice';
+import google from '../../assets/google.png';
 
 const LogIn = () => {
     const [enteredEmail, setEnteredEmail] = useState('pn@test.com');
@@ -107,7 +108,12 @@ const LogIn = () => {
                 </div>
             </form>}
             {!isLoading && <div className={classes.logo}>
-                <button onClick={otherLogin.bind(null, 'Google')}>Google</button>
+                <img
+                    style={{ width: '60px' }}
+                    src={google}
+                    alt="Google"
+                    onClick={otherLogin.bind(null, 'Google')} />
+
             </div>}
 
             {/* <button onClick={otherLogin.bind(null, 'Facebook')}>Facebook</button> */}

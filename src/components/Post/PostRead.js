@@ -9,7 +9,7 @@ const PostRead = () => {
         <>
             <div className={classes.form}>
                 <div className={classes.header}>
-                    <h1>{title}</h1>
+                    <h2>{title}</h2>
                 </div>
                 <div className={classes.content}>
                     <p>{content}</p>

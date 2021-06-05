@@ -1,6 +1,6 @@
 .Post {
     width: 80%;
-    height: 8rem;
+    /* height: 8rem; */
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     padding: 10px;
@@ -14,13 +14,13 @@
 }
 
 .action {
-    float:right;
+    float: right;
 }
 
 .button {
     font: inherit;
     cursor: pointer;
-    padding: 0.5rem 2rem;
+    /* padding: 0.5rem; */
     border-radius: 6px;
     background-color: transparent;
     color: rgb(160, 18, 18);
@@ -31,4 +31,13 @@ button:hover, button:active {
     background-color: rgb(160, 18, 18);
     border-color: rgb(160, 18, 18);
     color: white;
+}
+
+@media (min-width: 600px) {
+    .Post {
+        height: 8rem;
+    }
+    .button {
+        padding: 0.5rem 2rem;
+    }
 }
