@@ -2,14 +2,15 @@ import classes from './Navigation.module.css';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import Logout from '../../Pages/Authentication/Logout';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../store/auth-slice';
 
 const MainHeader = (props) => {
 
   const history = useHistory();
+  const dispatch = useDispatch();
   const isLoggedIn = true;
   const [isLogout, setIsLogout] = useState(false);
-  // const [cartDropdown, setCartDropdown] = useState(false);
-  // const [isCheckout, setIsCheckout] = useState(false);
 
   const onHome = () => {
     history.push('/dashboard');
@@ -17,12 +18,11 @@ const MainHeader = (props) => {
 
   const onConfirmHandler = () => {
     setIsLogout(false);
-    // localStorage.removeItem('token');
-    // dispatch(authActions.setUserData({
-    //   userId: '',
-    //   isLoggedIn: false
-    // }));
-    history.push('/login');
+    dispatch(authActions.setUserData({
+      userId: '',
+      isLoggedIn: false
+    }));
+    history.replace('/login');
   }
 
   const onCancelHandler = () => {
@@ -32,19 +32,6 @@ const MainHeader = (props) => {
   const onLogOut = () => {
     setIsLogout(true);
   }
-
-  // const onCartDropDown = () => {
-  //   setCartDropdown(!cartDropdown);
-  // }
-
-  // const onCheckout = () => {
-  //   setCartDropdown(false);
-  //   setIsCheckout(true);
-  // }
-
-  // const onCancelCheckout = () => {
-  //   setIsCheckout(false);
-  // }
 
   return (
     <div>

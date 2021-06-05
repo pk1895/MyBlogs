@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import firebase from '../../firebase';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import { useDispatch } from 'react-redux';
-import {authActions} from '../../store/auth-slice';
+import { authActions } from '../../store/auth-slice';
 
 const LogIn = () => {
     const [enteredEmail, setEnteredEmail] = useState('pn@test.com');
@@ -43,7 +43,7 @@ const LogIn = () => {
                 userId: enteredEmail,
                 isLogIn: true
             }));
-            history.push('/dashboard');
+            history.replace('/dashboard');
         }).catch((error) => {
             alert(error);
         });
@@ -71,8 +71,8 @@ const LogIn = () => {
                 dispatch(authActions.setUserData({
                     userId: enteredEmail,
                     isLogIn: true
-                }));               
-                history.push('/dashboard');
+                }));
+                history.replace('/dashboard');
             } else {
                 return res.json().then(data => {
                     setIsLoading(false);
