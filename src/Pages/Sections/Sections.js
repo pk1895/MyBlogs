@@ -2,7 +2,6 @@ import classes from './Sections.module.css';
 import { useHistory } from 'react-router';
 
 const Sections = () => {
-    
     const history = useHistory();
 
     const openSection = (section) => {

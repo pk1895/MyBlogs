@@ -1,28 +1,28 @@
 import classes from "./Posts.module.css";
 import { useHistory } from 'react-router';
 import { useDispatch } from "react-redux";
-import { PostActions } from "../../store/post-slice";
+import { PostsAction } from "../../store/posts-slice";
 
 const Posts = (props) => {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    const id = props.id;
-    const { title, section, content } = props.item;
+    const { id, title, section, content } = props;
 
     const onPostRead = () => {
-        dispatch(PostActions.setPosts({
+        dispatch(PostsAction.setPost({
             id, title, section, content
         }));
         history.push('/post-read');
     }
 
     const onPostDetail = () => {
-        dispatch(PostActions.setPosts({
+        dispatch(PostsAction.setPost({
             id, title, section, content
         }));
         history.push('/post-detail');
     }
+
     return (
         <>
             <div className={classes.Post} onClick={onPostRead}>

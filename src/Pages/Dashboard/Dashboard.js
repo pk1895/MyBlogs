@@ -2,10 +2,14 @@ import classes from './Dashboard.module.css';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import { useEffect, useState } from 'react';
 import Posts from '../../components/Post/Posts';
+import { useDispatch, useSelector } from 'react-redux';
+import { PostsAction } from '../../store/posts-slice';
 
 const Dashboard = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [postList, setPostList] = useState([]);
+    const dispatch = useDispatch();
+    const { items } = useSelector((state) => state.posts);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,6 +22,10 @@ const Dashboard = (props) => {
                     id: i,
                     item: responseData[i]
                 });
+                dispatch(PostsAction.setPostData({
+                    id: i,
+                    item: responseData[i]
+                }));
             }
             setPostList(loadedData);
         }
@@ -31,8 +39,12 @@ const Dashboard = (props) => {
 
     return (
         <div className={classes.dashboard}>
-            {postList.length !== 0 && postList.map((el, ind) => {
-                return <Posts id={el.id} item={el.item} />
+            {items.length !== 0 && items.map((el, ind) => {
+                return <Posts
+                    id={el.id}
+                    title={el.title}
+                    content={el.content}
+                    section={el.section} />
             })}
             {isLoading && <LoadingSpinner />}
         </div>

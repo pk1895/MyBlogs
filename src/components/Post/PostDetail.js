@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import axios from 'axios';
-import { PostActions } from '../../store/post-slice';
+import { PostsAction } from '../../store/posts-slice';
 import { useHistory } from 'react-router';
 
 const PostDetail = () => {
 
-    const { id, title, section, content } = useSelector((state) => state.post);
+    const { id, title, section, content } = useSelector((state) => state.posts.postDetailItem);
     const [updatedTitle, setUpdatedTitle] = useState(title);
     const [updatedSection, setUpdatedSection] = useState(content);
     const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +35,7 @@ const PostDetail = () => {
             setIsLoading(false);
             setUpdatedTitle('');
             setUpdatedSection('');
-            dispatch(PostActions.clearPost());
+            dispatch(PostsAction.clearPost());
 
             alert('Post updated successfully!');
             history.replace('/dashboard');

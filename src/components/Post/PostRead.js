@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 
 const PostRead = () => {
 
-    const { title, section, content } = useSelector((state) => state.post);
-    // const [isLoading, setIsLoading] = useState(false);
+    const { title, section, content } = useSelector((state) => state.posts.postDetailItem);
 
     return (
         <>
