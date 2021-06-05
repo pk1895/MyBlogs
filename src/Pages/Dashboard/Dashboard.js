@@ -19,9 +19,7 @@ const Dashboard = (props) => {
                     item: responseData[i]
                 });
             }
-            // console.log(responseData);
             setPostList(loadedData);
-            console.log(postList);
         }
         fetchData().catch((error) => {
             alert(error);
@@ -32,12 +30,12 @@ const Dashboard = (props) => {
     }, []);
 
     return (
-        <>
+        <div className={classes.dashboard}>
             {postList.length !== 0 && postList.map((el, ind) => {
                 return <Posts id={el.id} item={el.item} />
             })}
             {isLoading && <LoadingSpinner />}
-        </>
+        </div>
     );
 }
 
